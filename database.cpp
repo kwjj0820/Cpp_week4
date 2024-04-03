@@ -85,8 +85,8 @@ void add(Database &database, Entry *entry)
     Entry *isExist = get(database, entry->key);
     if(isExist != nullptr)
     {
-        isExist->type = entry->type;
-        isExist->value = entry->value;
+        remove(database, isExist->key);
+        add(database, entry);
         return;
     }
 
